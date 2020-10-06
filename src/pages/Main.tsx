@@ -3,6 +3,7 @@ import {Container} from "react-bootstrap";
 import {
     BrowserRouter, Route, Switch
 } from "react-router-dom";
+import { VariantStore } from 'src/store/VariantStore';
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -14,6 +15,7 @@ import Download from "./Download";
 import Explore from "./Explore";
 import Gene from "./Gene";
 import Home from "./Home";
+import Variant from './Variant';
 
 class Main extends React.Component<{}>
 {
@@ -42,6 +44,18 @@ class Main extends React.Component<{}>
             />
         );
 
+        const VariantPage = (props: any) => (
+            <Variant
+                variant={props.match.params.variant}
+                store={
+                    new VariantStore(
+                        props.match.params.variant,
+                        props.location.search
+                    )
+                }
+            />
+        );
+
         return (
             <BrowserRouter>
                 <div className="Main">
@@ -61,6 +75,11 @@ class Main extends React.Component<{}>
                             <Route exact={true} path="/gene/:hugoSymbol" component={GenePage} />
                             <Route exact={true} path="/about" component={About}/>
                             <Route exact={true} path="/download" component={Download}/>
+                            <Route
+                                exact={true}
+                                path="/variant/:variant"
+                                component={VariantPage}
+                            />
                         </Switch>
                     </Container>
                     <Footer />

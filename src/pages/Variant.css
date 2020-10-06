@@ -1,0 +1,32 @@
+.sidebar {
+    position: sticky !important;
+    top: 0;
+}
+
+.componentHeader {
+    border-bottom: 2px solid #e0e0e0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a86767;
+}
+
+.annotation-track-selector.small {
+    width: 200px !important;
+}
+
+.variant-page {
+    max-width: 1391px !important;
+    margin: 0 auto;
+}
+
+.variant-page-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* hide mutation mapper meta column */
+/* we cannot disable the whole meta column because we need the computed data */
+/* TODO There might be a better way to trigger the computation of those values instead of rendering the whole column */
+.gn-mutation-mapper .mutationMapperMetaColumn {
+    display: none;
+}

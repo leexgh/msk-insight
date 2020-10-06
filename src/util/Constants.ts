@@ -14,3 +14,12 @@ export const EXAMPLE_DATA_GRCH37 = [
         label: '17:g.7577548C>T (TP53 G245S)',
     },
 ];
+
+export const ANNOTATION_QUERY_FIELDS = [
+    'hotspots',
+    'annotation_summary',
+    'my_variant_info',
+    'mutation_assessor',
+];
+
+export const SHOW_MUTATION_ASSESSOR = true;
